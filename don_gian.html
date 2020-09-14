@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+    td{
+        width: 75px;
+        height: 75px;
+        text-align: center;
+        font-size: 30px;
+    }
+    #screen{
+        text-align: right;
+    }
+</style>
+<body>
+<table border="1px solid black" cellspacing="0">
+    <tr>
+        <td COLSPAN="4" id="screen"></td>
+
+    </tr>
+    <tr>
+        <td onclick="ac()">AC</td>
+        <td onclick="del()">Del</td>
+        <td>%</td>
+        <td onclick="clickCell('/')">/</td>
+    </tr>
+    <tr>
+        <td onclick="clickCell(1)">1</td>
+        <td onclick="clickCell(2)">2</td>
+        <td onclick="clickCell(3)">3</td>
+        <td onclick="clickCell('+')">+</td>
+    </tr>
+    <tr>
+        <td onclick="clickCell(4)">4</td>
+        <td onclick="clickCell(5)">5</td>
+        <td onclick="clickCell(6)">6</td>
+        <td onclick="clickCell('-')">-</td>
+    </tr>
+    <tr>
+        <td onclick="clickCell(7)">7</td>
+        <td onclick="clickCell(8)">8</td>
+        <td onclick="clickCell(9)">9</td>
+        <td onclick="clickCell('*')">X</td>
+    </tr>
+
+    <tr>
+        <td onclick="clickCell(0)" COLSPAN="2">0</td>
+        <td onclick="clickCell('.')">.</td>
+        <td onclick="cal()">=</td>
+    </tr>
+</table>
+<script>
+    let screen = document.getElementById("screen")
+    function clickCell(value) {
+        screen.innerHTML += value;
+    }
+
+    function cal() {
+        let str = screen.innerHTML;
+
+        let result = eval(str);
+
+        screen.innerHTML =result;
+    }
+
+    function ac() {
+        screen.innerHTML = "";
+    }
+
+    function del() {
+        let str = screen.innerHTML;
+        let res = str.substring(0,str.length-1);
+        screen.innerHTML = res;
+    }
+</script>
+</body>
+</html>
